@@ -93,10 +93,16 @@ function App() {
       };
     });
     
-    // Schedule the metronome loop
+    // Schedule the metronome loop with precise timing
     const loop = new Tone.Loop((time) => {
       // Calculate the current beat position in the measure
       const beatPosition = beatCount % meter;
+      
+      // Use Tone.Draw to sync beat display perfectly with audio
+      Tone.Draw.schedule(() => {
+        // This will execute in sync with the audio
+        setCurrentBeat(beatPosition);
+      }, time);
       
       // Play the appropriate click sound
       if (beatPosition === 0) {
@@ -112,9 +118,8 @@ function App() {
         }
       });
       
-      // Update beat count and display
+      // Update beat count
       beatCount = (beatCount + 1) % (meter * 16); // Prevent overflow eventually
-      setCurrentBeat(beatPosition);
       
     }, "4n").start(0);
     
@@ -198,6 +203,7 @@ function App() {
         currentBeat={currentBeat} 
         meter={meter}
         polyRhythms={polyRhythms}
+        tempo={tempo}
       />
       
       <MetronomeControls 
