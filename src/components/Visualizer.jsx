@@ -159,18 +159,7 @@ const ClockHand = styled.div`
     opacity: 0.6;
     filter: blur(3px);
   }
-  &:after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 50%;
-    width: 12px;
-    height: 12px;
-    background: #ff00ff;
-    border-radius: 50%;
-    transform: translate(-50%, 50%);
-    box-shadow: 0 0 10px 2px #ff00ff, 0 0 20px rgba(255,0,255,0.6);
-  }
+  /* Center dot removed */
 `;
 
 const BeatSymbol = styled.div`

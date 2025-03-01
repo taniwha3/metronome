@@ -13,16 +13,51 @@ const AppContainer = styled.div`
   flex-direction: column;
   align-items: center;
   gap: 2rem;
+  position: relative;
+  z-index: 1;
+  
+  &::before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, #ff00ff, transparent);
+    bottom: -10px;
+    left: 0;
+    filter: blur(2px);
+    opacity: 0.5;
+  }
 `;
 
 const Title = styled.h1`
-  font-size: 3rem;
+  font-size: 3.5rem;
   font-weight: 700;
   margin-bottom: 1rem;
-  background: linear-gradient(90deg, #f72585 0%, #4cc9f0 100%);
+  color: transparent;
+  background: linear-gradient(90deg, #ff00ff 0%, #00ffff 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   text-align: center;
+  position: relative;
+  text-shadow: 
+    0 0 5px rgba(255, 0, 255, 0.3),
+    0 0 10px rgba(0, 255, 255, 0.3);
+  letter-spacing: 6px;
+  
+  &::after {
+    content: 'METRONOME';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, #ff00ff 0%, #00ffff 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    filter: blur(8px);
+    opacity: 0.6;
+    z-index: -1;
+  }
 `;
 
 function App() {
