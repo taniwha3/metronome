@@ -21,7 +21,7 @@ const GlobalStyle = createGlobalStyle`
     overflow-x: hidden;
   }
   
-  /* Synthwave sun with stripes */
+  /* Synthwave sun with full gradient and stripes */
   body::after {
     content: '';
     position: fixed;
@@ -31,33 +31,18 @@ const GlobalStyle = createGlobalStyle`
     width: 800px;
     height: 600px;
     background: 
+      linear-gradient(0deg, #ffcc00 0%, #ff9e00 20%, #ff5e00 40%, #ff1b8d 60%, rgba(255, 27, 141, 0) 100%),
       repeating-linear-gradient(
         0deg,
-        #ff1b8d 0%,
-        #ff1b8d 2%,
-        rgba(255, 27, 141, 0.9) 2%,
-        rgba(255, 27, 141, 0.9) 4%,
-        rgba(255, 27, 141, 0.8) 4%,
-        rgba(255, 27, 141, 0.8) 6%,
-        rgba(255, 27, 141, 0.7) 6%,
-        rgba(255, 27, 141, 0.7) 8%,
-        rgba(255, 27, 141, 0.6) 8%,
-        rgba(255, 27, 141, 0.6) 10%,
-        rgba(255, 27, 141, 0.5) 10%,
-        rgba(255, 27, 141, 0.5) 12%,
-        rgba(255, 27, 141, 0.4) 12%,
-        rgba(255, 27, 141, 0.4) 14%,
-        rgba(255, 27, 141, 0.3) 14%,
-        rgba(255, 27, 141, 0.3) 16%,
-        rgba(255, 27, 141, 0.2) 16%,
-        rgba(255, 27, 141, 0.2) 18%,
-        rgba(255, 27, 141, 0.1) 18%,
-        rgba(255, 27, 141, 0.1) 20%,
-        rgba(255, 27, 141, 0) 20%
+        transparent 0%,
+        transparent 1.5%,
+        rgba(0, 0, 0, 0.1) 1.5%,
+        rgba(0, 0, 0, 0.1) 3%
       );
     border-radius: 50% 50% 0 0;
     z-index: -2;
-    opacity: 0.9;
+    opacity: 0.95;
+    box-shadow: 0 0 100px rgba(255, 204, 0, 0.3);
     mask-image: radial-gradient(circle at center, black 0%, black 50%, transparent 70%);
     -webkit-mask-image: radial-gradient(circle at center, black 0%, black 50%, transparent 70%);
   }
