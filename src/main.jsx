@@ -21,23 +21,45 @@ const GlobalStyle = createGlobalStyle`
     overflow-x: hidden;
   }
   
-  /* Synthwave sun */
+  /* Synthwave sun with stripes */
   body::after {
     content: '';
     position: fixed;
-    bottom: -120px;
+    bottom: -150px;
     left: 50%;
     transform: translateX(-50%);
     width: 800px;
     height: 600px;
     background: 
-      radial-gradient(circle at center, rgba(255, 60, 172, 0.8) 0%, rgba(255, 60, 172, 0) 70%),
-      radial-gradient(circle at center, rgba(255, 60, 172, 0.5) 0%, rgba(255, 60, 172, 0) 60%),
-      radial-gradient(circle at center, rgba(255, 0, 110, 0.3) 0%, rgba(255, 0, 110, 0) 50%);
-    border-radius: 100% 100% 0 0;
-    filter: blur(5px);
+      repeating-linear-gradient(
+        0deg,
+        #ff1b8d 0%,
+        #ff1b8d 2%,
+        rgba(255, 27, 141, 0.9) 2%,
+        rgba(255, 27, 141, 0.9) 4%,
+        rgba(255, 27, 141, 0.8) 4%,
+        rgba(255, 27, 141, 0.8) 6%,
+        rgba(255, 27, 141, 0.7) 6%,
+        rgba(255, 27, 141, 0.7) 8%,
+        rgba(255, 27, 141, 0.6) 8%,
+        rgba(255, 27, 141, 0.6) 10%,
+        rgba(255, 27, 141, 0.5) 10%,
+        rgba(255, 27, 141, 0.5) 12%,
+        rgba(255, 27, 141, 0.4) 12%,
+        rgba(255, 27, 141, 0.4) 14%,
+        rgba(255, 27, 141, 0.3) 14%,
+        rgba(255, 27, 141, 0.3) 16%,
+        rgba(255, 27, 141, 0.2) 16%,
+        rgba(255, 27, 141, 0.2) 18%,
+        rgba(255, 27, 141, 0.1) 18%,
+        rgba(255, 27, 141, 0.1) 20%,
+        rgba(255, 27, 141, 0) 20%
+      );
+    border-radius: 50% 50% 0 0;
     z-index: -2;
-    opacity: 0.8;
+    opacity: 0.9;
+    mask-image: radial-gradient(circle at center, black 0%, black 50%, transparent 70%);
+    -webkit-mask-image: radial-gradient(circle at center, black 0%, black 50%, transparent 70%);
   }
 
   /* Grid lines on the horizon */
@@ -49,12 +71,10 @@ const GlobalStyle = createGlobalStyle`
     right: 0;
     bottom: 0;
     background-image: 
-      linear-gradient(to bottom, rgba(255, 0, 255, 0.2) 0%, transparent 5%, transparent 95%, rgba(255, 0, 255, 0.2) 100%),
-      linear-gradient(90deg, rgba(0, 255, 255, 0.2) 0%, transparent 5%, transparent 95%, rgba(0, 255, 255, 0.2) 100%),
       repeating-linear-gradient(180deg, transparent, transparent 45%, rgba(255, 0, 255, 0.1) 45%, rgba(255, 0, 255, 0.1) 45.1%, transparent 45.1%, transparent 50%),
       repeating-linear-gradient(90deg, transparent, transparent 45%, rgba(0, 255, 255, 0.05) 45%, rgba(0, 255, 255, 0.05) 45.1%, transparent 45.1%, transparent 50%);
-    background-size: 100% 100%, 100% 100%, 100% 100px, 100px 100%;
-    background-position: 0 0, 0 0, 0 bottom, 0 0;
+    background-size: 100% 100px, 100px 100%;
+    background-position: 0 bottom, 0 0;
     pointer-events: none;
     z-index: 10;
   }
